@@ -1,7 +1,7 @@
 class TwoDLanguage {
     constructor() {
       this.grid = [
-        "23*5*5*2+,"
+        "23*52**59+9++,"
       ];
   
       this.ip = { x: 0, y: 0 }; // Instruction Pointer
@@ -209,10 +209,14 @@ class TwoDLanguage {
   }
   
   const myLanguage = new TwoDLanguage();
-  const maxLength = myLanguage.grid[0].length
-  
+  let accumulator = 0
+  // CALCULATE THE AMOUNT OF INSTRUCTIONS THE CODE NEEDS TO RUN TO FULLY COMPLETE THE PROGRAM
+    for (var i=0;i<myLanguage.grid.length;i++){
+    accumulator = accumulator + myLanguage.grid[i].length;
+    }
+    let maxLength = accumulator
   for (let i = 0; i < maxLength; i++) {
-    const instruction = myLanguage.getCurrentInstruction();
+    const instruction = myLanguage.getCurrentInstruction(); 
     myLanguage.executeInstruction(instruction);
     myLanguage.moveInstructionPointer(myLanguage.direction.dx, myLanguage.direction.dy);
   }
